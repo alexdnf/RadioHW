@@ -10,6 +10,15 @@ public class RadioTest {
 
         Assertions.assertEquals(10, rad.getCountOfStations());
     }
+    @Test
+    public void shouldSetStationOf20() {
+        Radio rad = new Radio(20);
+
+        rad.setCurrentStation(15);
+
+        Assertions.assertEquals(15, rad.getCurrentStation());
+    }
+
 
     @Test
     public void shouldSetStation() {
@@ -160,7 +169,7 @@ public class RadioTest {
     public void shouldNotSetStationAboveMax() {
         Radio rad = new Radio();
 
-        rad.setCurrentStation(10);
+        rad.setCurrentStation(21);
 
         int expected = 0;
         int actual = rad.getCurrentStation();
