@@ -6,17 +6,36 @@ import org.junit.jupiter.api.Test;
 public class RadioTest {
     @Test
     public void shouldSelectCountOfStations() {
-        Radio rad = new Radio(10,0,9);
+        Radio rad = new Radio(10);
 
         Assertions.assertEquals(10, rad.getCountOfStations());
     }
+
     @Test
     public void shouldSetStationOf20() {
-        Radio rad = new Radio(20,0,19);
+        Radio rad = new Radio(20);
 
         rad.setCurrentStation(15);
 
         Assertions.assertEquals(15, rad.getCurrentStation());
+    }
+
+    @Test
+    public void shouldNotSetStationOf20AboveMax() {
+        Radio rad = new Radio(20);
+
+        rad.setCurrentStation(20);
+
+        Assertions.assertEquals(0, rad.getCurrentStation());
+    }
+
+    @Test
+    public void shouldNotSetStationOf20SubMin() {
+        Radio rad = new Radio(20);
+
+        rad.setCurrentStation(-1);
+
+        Assertions.assertEquals(0, rad.getCurrentStation());
     }
 
 
